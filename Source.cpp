@@ -14,10 +14,19 @@ int main()
 	
 	while (true)
 	{
+		if (nStackPointer > 29999 || nStackPointer < 0)
+		{
+			std::cout << "Error: Pointer out of range.\n";
+			return -1;
+		}
+		
 		std::string s;
 		std::cin >> s;
 
-		if (s.find('&') == std::string::npos)
+		if (s == "exit")
+			return 0;
+
+		if (s != "run")
 		{
 			for (size_t i = 0; i < s.length(); i++)
 				vecInput.push_back(s[i]);
@@ -55,9 +64,6 @@ int main()
 			case ',':
 				std::cin >> rgStack[nStackPointer];
 				break;
-
-			case '!':
-				return 0;
 
 			case '[':
 			{
@@ -107,6 +113,8 @@ int main()
 
 			}
 		}
+
+		vecInput.clear();
 
 	}
 
