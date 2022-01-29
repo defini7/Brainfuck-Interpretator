@@ -9,6 +9,8 @@ int main()
 	int brc = 0;
 
 	std::vector<char> vecInput;
+
+	std::cout << "DEFINIT BRAINFUCK V0.1\n";
 	
 	while (true)
 	{
@@ -53,9 +55,6 @@ int main()
 			case ',':
 				std::cin >> rgStack[nStackPointer];
 				break;
-
-			case '#': // comment in brainfuck
-				continue;
 
 			case '!':
 				return 0;
