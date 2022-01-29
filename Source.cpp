@@ -33,6 +33,12 @@ int main()
 
 			continue;
 		}
+		
+		if (std::count(vecInput.begin(), vecInput.end(), '[') != std::count(vecInput.begin(), vecInput.end(), ']'))
+		{
+			std::cout << "Error: While loop started but not ended.\n";
+			return -1;
+		}
 
 		for (size_t i = 0; i < vecInput.size(); i++)
 		{
