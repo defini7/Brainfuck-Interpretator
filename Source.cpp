@@ -10,7 +10,7 @@ int main()
 
 	std::vector<char> vecInput;
 
-	std::cout << "DEFINIT BRAINFUCK V0.1\n";
+	std::cout << "DEFINIT BRAINFUCK v0.1\n";
 	
 	while (true)
 	{
