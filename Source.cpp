@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 char rgStack[30000]{ 0 };
 
@@ -11,7 +12,7 @@ int main()
 	std::vector<char> vecInput;
 
 	std::cout << "DEFINIT BRAINFUCK v0.1\n";
-	
+
 	while (true)
 	{
 		if (nStackPointer > 29999 || nStackPointer < 0)
@@ -19,12 +20,25 @@ int main()
 			std::cout << "Error: Pointer out of range.\n";
 			return -1;
 		}
-		
+
 		std::string s;
 		std::cin >> s;
 
 		if (s == "exit")
 			return 0;
+
+		if (s == "new")
+		{
+			vecInput.clear();
+
+			for (int i = 0; i < 29999; i++)
+				rgStack[i] = 0;
+
+			nStackPointer = 0;
+			brc = 0;
+
+			continue;
+		}
 
 		if (s != "run")
 		{
@@ -33,7 +47,7 @@ int main()
 
 			continue;
 		}
-		
+
 		if (std::count(vecInput.begin(), vecInput.end(), '[') != std::count(vecInput.begin(), vecInput.end(), ']'))
 		{
 			std::cout << "Error: While loop started but not ended.\n";
@@ -44,7 +58,7 @@ int main()
 		{
 			switch (vecInput[i])
 			{
-			case ' ':
+			case ' ': case '\n': case '\t': case '\r':
 				break;
 
 			case '+':
@@ -115,6 +129,7 @@ int main()
 
 			default:
 				std::cout << "Unexpected symbol!\n";
+				std::cout << vecInput[i];
 				return 1;
 
 			}
