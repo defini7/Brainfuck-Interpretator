@@ -135,8 +135,6 @@ int main()
 			}
 		}
 
-		vecInput.clear();
-
 	}
 
 	return 0;
