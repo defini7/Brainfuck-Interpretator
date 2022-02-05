@@ -127,11 +127,6 @@ int main()
 			}
 			break;
 
-			default:
-				std::cout << "Unexpected symbol!\n";
-				std::cout << vecInput[i];
-				return 1;
-
 			}
 		}
 
